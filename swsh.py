@@ -1,7 +1,6 @@
 
 import requests
 response = requests.get("https://www.serebii.net/swordshield/pokemon.shtml")
-print(response)
 
 from bs4 import BeautifulSoup
 # Finding the Table Class
@@ -29,7 +28,6 @@ content = [i.removeprefix('\r\n\t\t') for i in content]
 content = [i.removesuffix('\r\n\t\t') for i in content]
 content = [i.replace('\n', '').replace(' ', '') for i in content]
 content = [i for i in content if i]
-print(headers)
 
 import pandas as pd
 from datetime import datetime
