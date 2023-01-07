@@ -28,17 +28,10 @@ for i in table1.find_all('tr')[2:]:
 content = [i.removeprefix('\r\n\t\t') for i in content]
 content = [i.removesuffix('\r\n\t\t') for i in content]
 content = [i.replace('\n', '').replace(' ', '').replace('#', '') for i in content]
-# for k in ignore:
-#     content = [i.replace(k, '') for i in content]
 content = [i for i in content if i]
 # Finding Img Src
-src = []
-images = []
-for i in table1.find_all('img'):
-    src.append(i)
-for element in src:
-    if '.gif' not in element['src']:
-        images.append("=IMAGE(\"" + "https://www.serebii.net"+element['src']+ "\")")
+src = [i for i in table1.find_all('img')]
+images = [("=IMAGE(\"" + "https://www.serebii.net"+element['src']+ "\")") for element in src if '.gif' not in element['src']]
 
 import pandas as pd
 from datetime import datetime
