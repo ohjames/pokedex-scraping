@@ -1,4 +1,3 @@
-url = "https://www.serebii.net/pokemon/gen3pokemon.shtml"
 
 import requests
 from bs4 import BeautifulSoup
@@ -49,11 +48,8 @@ class PokeScraper():
         return images
 
     def create_df(self):
-        data1 = pd.DataFrame(self.get_content_info())
-        data1 = pd.DataFrame(data1[0].values.reshape(-1,9), columns=self.get_header_info())
-        data1.insert(2, "Pic", self.get_img_src())
-        data1.insert(loc = 0,column = 'Count',value = '')
-        return data1
-
-poke_list = PokeScraper(url)
-df = poke_list.create_df()
+        poke_df = pd.DataFrame(self.get_content_info())
+        poke_df = pd.DataFrame(poke_df[0].values.reshape(-1,9), columns=self.get_header_info())
+        poke_df.insert(2, "Pic", self.get_img_src())
+        poke_df.insert(loc = 0,column = 'Count',value = '')
+        return poke_df
