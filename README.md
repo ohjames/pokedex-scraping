@@ -9,7 +9,10 @@ Will also need to install Python libraries, `requests`, `beautifulsoup4`, `panda
 `pip install requests beautifulsoup4 pandas gspread`
 
 ## Usage
-First, create a Google Sheet with the file name you want, and change `sheet_name` variable in upload.py to match the file name. Run upload.py to populate the data onto the Google Sheet file.
+First, follow the instructions for Google Drive's API to obtain the credentials [here](https://docs.gspread.org/en/v4.0.0/oauth2.html). After obtaining the credentials, create a Google Sheet with the desired file name, and change `sheet_name` variable in upload.py to match the file name. Go into the Google Sheet file and share it to the credentials address. Finally, run upload.py to populate the data onto the Google Sheet file.
+
+## Contributing
+If you would like to contribute to this project, feel free to fork the repository and submit a pull request.
 
 ## Acknowledgments
 Thanks to [Serebii.net](https://serebii.net) website for providing the data used in this project.
